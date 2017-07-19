@@ -1,10 +1,15 @@
 # Easy Pump
+===
 
 This tool is used to speed up the buy and sell actions of crypto currencies during pump period
 
 usually pump period is not more than one minute so buy and sell actions should be placed very fast in order to be able to make a profit
 
 that is why I've created this tool in order to make the buy and sell actions in less than 6 seconds. (it depends in your network traffic)
+
+## Limitation
+- Currently this tool supports bittrex exchange only, in future versions it will supprot other exchanges
+- This tool requires API Key and Secret, you may get them from the Exchange
 
 ## How to compile ?
 - Computer should have JAVA version 1.8 or latest version, you may download and install it from https://java.com/en/download/
@@ -27,14 +32,13 @@ that is why I've created this tool in order to make the buy and sell actions in 
 2- when tool loads in memory it will prompt the user to enter the desired coin
 	coin should be passed as it is in exchange with "btc" keyword
 
-	```
 	for example:
 		eth for Ethereum
 		dash for Dash
 		xvg for Verge 
 	
 	you can get coin name from the exchange
-	```
+
 
 3- once the user enters the coin name the tool will do the following:
 - it tries to get the current ASK price from the exchange
