@@ -1,5 +1,4 @@
 # Easy Pump
-===
 
 This tool is used to speed up the buy and sell actions of crypto currencies during pump period
 
