@@ -38,7 +38,7 @@ public class PumpEngine {
 	}
 
 	public void startPump() throws Exception {
-		
+
 		String msg;
 		logger.info("Passed Parameters [{}]", Arrays.toString(args));
 
@@ -48,45 +48,45 @@ public class PumpEngine {
 		Scanner sc = new Scanner(System.in);
 		coinName = sc.next();
 		sc.close();
-		
-		 msg = String.format("Coin Name : BTC-%s, BTC Amount %.8f, Profit Percentage %f", coinName.toUpperCase(),
+
+		msg = String.format("Coin Name : BTC-%s, BTC Amount %.8f, Profit Percentage %f", coinName.toUpperCase(),
 				btcValue, profitPercentage);
 		logger.info(msg);
-		
-		logger.info("################################### Start Pump Engine ###################################");
-		BigDecimal currentAsk = bittrexApi.getCoinLimit(coinName);
-		BigDecimal proposedAsk = currentAsk.multiply(buyFacotr);
-		BigDecimal quantity = btcValue.divide(proposedAsk.multiply(safeFactor), RoundingMode.DOWN);
 
-		msg = String.format("Current Ask %.8f, Proposed Ask %.8f, Proposed Quantity %.8f", currentAsk,
-				proposedAsk, quantity);
+		logger.info("################################### Start Pump Engine ###################################");
+		BigDecimal currentBid = bittrexApi.getCoinLimit(coinName);
+		BigDecimal proposedBid = currentBid.multiply(buyFacotr);
+		BigDecimal quantity = btcValue.divide(proposedBid.multiply(safeFactor), RoundingMode.DOWN);
+		BigDecimal proposedAsk = currentBid
+				.multiply(profitPercentage.add(BigDecimal.valueOf(100)).divide(BigDecimal.valueOf(100)));
+
+		msg = String.format("Current Bid %.8f, Proposed Quantity %.8f, Proposed Ask %.8f", proposedBid, quantity,
+				proposedAsk);
 		logger.info(msg);
 
-		String buyOrderId = bittrexApi.placeBuyOrder(apiKey, apiSecret, coinName, quantity, proposedAsk);
+		String buyOrderId = bittrexApi.placeBuyOrder(apiKey, apiSecret, coinName, quantity, proposedBid);
 		logger.info("Buy Order UUID {}", buyOrderId);
 
 		bittrexApi.waitOpenOrderToClose(apiKey, apiSecret, buyOrderId);
 		logger.info("Buy Order UUID {} closed, Engine will place sell order id", buyOrderId);
-		
-		BigDecimal proposedBid = currentAsk.multiply(profitPercentage.add(BigDecimal.valueOf(100)).divide(BigDecimal.valueOf(100)));
-		
-		String sellOrderId = bittrexApi.placeSellOrder(apiKey, apiSecret, coinName, quantity, proposedBid);
-		
+
+		String sellOrderId = bittrexApi.placeSellOrder(apiKey, apiSecret, coinName, quantity, proposedAsk);
+
 		logger.info("Sell Order UUID {}", sellOrderId);
 		logger.info("################################### Sell Order Placed ###################################");
-		
+
 	}
 
 	public void validateAndParseArgs() throws Exception {
 		if (this.args.length < 4) {
 			logger.info(
-					"Invalid Parameters : [API Key] [API Secret] [BTC Amount] [Profit Percentage] [Buy Factor|Optional]");
+					"Invalid Parameters : [API Key] [API Secret] [BTC Amount] [Profit Percentage]");
 			logger.info("Example : 2f32827101 1ce239fod 0.02 40 eth 1.1");
 			throw new Exception("Invalid arguments...");
 		}
 
 		apiKey = this.args[0];
-		apiSecret = this.args[1];		
+		apiSecret = this.args[1];
 
 		btcValue = BigDecimal.valueOf(Double.parseDouble(this.args[2]));
 		profitPercentage = BigDecimal.valueOf(Double.parseDouble(this.args[3]));
@@ -95,7 +95,6 @@ public class PumpEngine {
 			buyFacotr = BigDecimal.valueOf(Double.parseDouble(this.args[4]));
 		else
 			buyFacotr = BigDecimal.valueOf(1.0);
-			
 
 	}
 

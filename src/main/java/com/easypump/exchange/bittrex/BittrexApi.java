@@ -48,7 +48,7 @@ public class BittrexApi {
 		if (!marketResponse.isSuccess())
 			throw new Exception("Error While Getting Orders - " + marketResponse.getMessage());
 
-		return BigDecimal.valueOf(marketResponse.getResult().get(0).getAsk());
+		return BigDecimal.valueOf(marketResponse.getResult().get(0).getBid());
 
 	}
 
