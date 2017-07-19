@@ -7,7 +7,7 @@ usually pump period is not more than one minute so buy and sell actions should b
 that is why I've created this tool in order to make the buy and sell actions in less than 6 seconds. (it depends in your network traffic)
 
 ## How to compile ?
-- Computer should have JAVA version 1.8 or more you may download and install it from https://java.com/en/download/
+- Computer should have JAVA version 1.8 or latest version, you may download and install it from https://java.com/en/download/
 - download the execuatable Jar file or compile it your self using mvn install
 
 ## How to run ?
@@ -17,22 +17,25 @@ that is why I've created this tool in order to make the buy and sell actions in 
 - exhcange secret key.
 - amount of BTC that will be used
 - profit percentage
-	
-	example : java -jar easy-pump-0.0.1-SNAPSHOT.jar fba4d194540e4b998f570cdwef0cdwecew3o b090f44028f54wrgregee12922cc04d 0.5 20
 
+	```
+	example : java -jar easy-pump-0.0.1-SNAPSHOT.jar fba4d194540e4b998f570cdwef0cdwecew3o b090f44028f54wrgregee12922cc04d 0.5 20
+	```
 	
 	in this example you ask the tool to use creditainls passed as api key and secret to buy a specific coin, tool will ask about it later, with BTC amount 0.5 and to make the sell price = buy price + 20% as profit
 	
 2- when tool loads in memory it will prompt the user to enter the desired coin
 	coin should be passed as it is in exchange with "btc" keyword
-	
+
+	```
 	for example:
 		eth for Ethereum
 		dash for Dash
 		xvg for Verge 
 	
 	you can get coin name from the exchange
-	
+	```
+
 3- once the user enters the coin name the tool will do the following:
 - it tries to get the current ASK price from the exchange
 - it calcuated the quantity that can be bought using the available BTC amount passed to the process.
