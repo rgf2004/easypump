@@ -1,15 +1,15 @@
 # Easy Pump
 
-This app is used to speed up the buy/sell actions of crypto currencies during pump period
+This app is used to speed up the buy/sell actions of crypto currencies during the pump period
 
-usually pump period is not more than one minute so buy and sell actions should be placed very fast in order to be able to make a profit
+usually the pump period is not more than one minute so buy and sell actions should be placed very fast in order to be able to make a profit
 
 that is why I've created this app in order to make the buy and sell actions done in less than 5 seconds. (it depends in your network traffic)
 
 ## Limitation
 - Currently this app supports bittrex exchange only, in future versions it will supprot other exchanges
 - This app requires API Key and Secret, you may get them from the Exchange
-- This app run doesn't have GUI interface, instead it runs from command line
+- This app doesn't have GUI interface, instead it runs from command line
 
 ## How to compile ?
 - Computer should have JAVA version 1.8 or latest version, you may download and install it from https://java.com/en/download/
