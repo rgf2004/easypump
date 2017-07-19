@@ -1,22 +1,23 @@
 # Easy Pump
 
-This tool is used to speed up the buy and sell actions of crypto currencies during pump period
+This app is used to speed up the buy/sell actions of crypto currencies during pump period
 
 usually pump period is not more than one minute so buy and sell actions should be placed very fast in order to be able to make a profit
 
-that is why I've created this tool in order to make the buy and sell actions in less than 6 seconds. (it depends in your network traffic)
+that is why I've created this app in order to make the buy and sell actions done in less than 5 seconds. (it depends in your network traffic)
 
 ## Limitation
-- Currently this tool supports bittrex exchange only, in future versions it will supprot other exchanges
-- This tool requires API Key and Secret, you may get them from the Exchange
+- Currently this app supports bittrex exchange only, in future versions it will supprot other exchanges
+- This app requires API Key and Secret, you may get them from the Exchange
+- This app run doesn't have GUI interface, instead it runs from command line
 
 ## How to compile ?
 - Computer should have JAVA version 1.8 or latest version, you may download and install it from https://java.com/en/download/
-- download the execuatable Jar file or compile it your self using mvn install
+- download the latest execuatable Jar file from release page https://github.com/rgf2004/easypump/releases or compile it yourself using mvn install command
 
 ## How to run ?
 
-1- this tool takes the following parameters:
+1- this app takes the following parameters:
 - exchange api key.
 - exhcange secret key.
 - amount of BTC that will be used
@@ -26,9 +27,9 @@ that is why I've created this tool in order to make the buy and sell actions in 
 	example : java -jar easy-pump-0.0.1-SNAPSHOT.jar fba4d194540e4b998f570cdwef0cdwecew3o b090f44028f54wrgregee12922cc04d 0.5 20
 	```
 	
-	in this example you ask the tool to use creditainls passed as api key and secret to buy a specific coin, tool will ask about it later, with BTC amount 0.5 and to make the sell price = buy price + 20% as profit
+	in this example you ask the app to use creditainls passed as api key and secret to buy a specific coin, app will ask about it later, with BTC amount 0.5 and to make the sell price = buy price + 20% as profit
 	
-2- when tool loads in memory it will prompt the user to enter the desired coin
+2- when app loads in memory it will prompt the user to enter the desired coin
 	coin should be passed as it is in exchange with "btc" keyword
 
 	for example:
@@ -39,9 +40,9 @@ that is why I've created this tool in order to make the buy and sell actions in 
 	you can get coin name from the exchange
 
 
-3- once the user enters the coin name the tool will do the following:
+3- once the user enters the coin name the app will do the following:
 - it tries to get the current ASK price from the exchange
-- it calcuated the quantity that can be bought using the available BTC amount passed to the process.
+- it calcuated the quantity that can be bought using the available BTC amount passed to this app.
 - it places the buy order for this coin
 - it monitors the exchange till this order is completed
 - once order is completed it will calculate the sell price based on the profit percentage passed to it.
