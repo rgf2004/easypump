@@ -7,8 +7,8 @@ usually pump period is not more than one minute so buy and sell actions should b
 that is why I've created this tool in order to make the buy and sell actions in less than 6 seconds. (it depends in your network traffic)
 
 ## How to compile ?
-1- Computer should have JAVA version 1.8 or more you may download and install it from https://java.com/en/download/
-2- download the execuatable Jar file or compile it your self using mvn install
+- Computer should have JAVA version 1.8 or more you may download and install it from https://java.com/en/download/
+- download the execuatable Jar file or compile it your self using mvn install
 
 ## How to run ?
 
