@@ -64,7 +64,7 @@ If you want to share your own code, please follow these steps:
 
 ## Donations :moneybag:
 
-If you want to me, you can donate to:
+If you want you can donate to:
 
 ```
 - [ Bitcoin ] 1PfnwEdmU3Ki9htakiv4tciPXzo49RRkai
