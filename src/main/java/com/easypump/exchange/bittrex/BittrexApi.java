@@ -39,7 +39,7 @@ public class BittrexApi {
 
 		String marketName = "btc-" + coinName.toLowerCase();
 
-		StringBuilder url = new StringBuilder(BITTREX_URL + "public/getmarketsummary?market=").append(marketName);
+		StringBuilder url = new StringBuilder(BITTREX_URL + "public/getticker?market=").append(marketName);
 		
 		String response = restTemplate.postForObject(url.toString(), null, String.class);
 
